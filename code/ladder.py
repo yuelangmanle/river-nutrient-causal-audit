@@ -375,8 +375,8 @@ def main():
     t0 = pd.DataFrame(t0_rows)
     n_t0, k_t0, s_t0, p_t0, _ = share_stats(t0, "te_f2w", "te_w2f", "TE")
     # sanity: paper's naive uncond TE was 40.4% on the 272-combo TE subsample
-    v26 = pd.read_csv(f"{T}/transfer_entropy.csv")
-    cte_keys = set(map(tuple, v26[["gems_id", "gsim_id", "parameter"]].values))
+    te_base = pd.read_csv(f"{T}/transfer_entropy.csv")
+    cte_keys = set(map(tuple, te_base[["gems_id", "gsim_id", "parameter"]].values))
     sub = t0[[tuple(r) in cte_keys
               for r in t0[["gems_id", "gsim_id", "parameter"]].values]]
     ns, _, ss, _, _ = share_stats(sub, "te_f2w", "te_w2f", "TE")

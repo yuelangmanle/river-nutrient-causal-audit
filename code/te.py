@@ -461,8 +461,8 @@ def step4():
     out = pd.DataFrame(rows)
     out.to_csv(f"{T}/transfer_entropy_491.csv", index=False)
 
-    v26 = pd.read_csv(f"{T}/transfer_entropy.csv")
-    cte_keys = set(map(tuple, v26[["gems_id", "gsim_id", "parameter"]].values))
+    te_base = pd.read_csv(f"{T}/transfer_entropy.csv")
+    cte_keys = set(map(tuple, te_base[["gems_id", "gsim_id", "parameter"]].values))
     sub = out[[tuple(r) in cte_keys
                for r in out[["gems_id", "gsim_id", "parameter"]].values]]
 
@@ -478,7 +478,7 @@ def step4():
     kt = int((out.te_f2w > out.te_w2f).sum())
     print(f"TE (uncond s6 proper) flow-dom {100*kt/len(out):.1f}% ({kt}/{len(out)})")
     print(f"[reference: station_level_sensitivity records naive Conditional TE 65.4% "
-          f"combo-level on the 272 subsample; transfer_entropy.csv n={len(v26)}]")
+          f"combo-level on the 272 subsample; transfer_entropy.csv n={len(te_base)}]")
     print(f"written: {T}/transfer_entropy_491.csv")
 
 

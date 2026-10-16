@@ -96,17 +96,17 @@ every table is verifiable without downloading anything.
    partial years in place, preserving exact calendar-month phase at any record
    length. Each rotated flow mask is intersected with the water-quality mask
    under the two-month short-gap rule and with the rotated usable-month mask
-   (`pipeline.rotated_support`), removing 20 rotation-seam slot views out of
-   671,147 positional views (`rotation_seam_audit.csv`). Wherever the
+   (`pipeline.rotated_support`), removing 20 annual wrap-around boundary windows out of
+   671,147 positional windows (`rotation_seam_audit.csv`). Wherever the
    complete-year count divides $k$, the rotation is an exact identity and
    reproduces the observed row (`code/selfcheck.py`).
 6. **Concordance permutation bands.** `batch1_pairwise_kappa.csv`,
    `batch1_concperm.csv`, and `batch1_concordance.csv` report pairwise Cohen's
    $\kappa$, five-way Fleiss' $\kappa$, and 5,000-draw margin-preserving
-   station-block permutation bands across the 313 tie-free series.
+   station-block permutation bands across the 313 non-tied series.
 7. **Lake Taihu piecewise detrending.** `taihu_piecewise.csv` (matching
    `Supplementary_taihu_piecewise_detrend.csv`) joins the 2009 breakpoint
-   piecewise-detrended CCM skills and argmax-matched permutation $p$-values
+   piecewise-detrended CCM skills and tuned-$E$ permutation $p$-values
    onto the lake-direction table.
 
 ## Table-to-script map

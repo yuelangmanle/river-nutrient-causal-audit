@@ -157,8 +157,8 @@ def load_shares():
     tez = pd.read_csv(f'{T}/te_z.csv').dropna(subset=['te_f2w', 'te_w2f'])
     s['te_corr'] = 100 * (tez.te_f2w > tez.te_w2f).mean()
 
-    v26 = pd.read_csv(f'{T}/transfer_entropy_491.csv').dropna(subset=['cte_f2w', 'cte_w2f'])
-    s['cte_naive'] = 100 * (v26.cte_f2w > v26.cte_w2f).mean()
+    te_base = pd.read_csv(f'{T}/transfer_entropy_491.csv').dropna(subset=['cte_f2w', 'cte_w2f'])
+    s['cte_naive'] = 100 * (te_base.cte_f2w > te_base.cte_w2f).mean()
     ctz = pd.read_csv(f'{T}/cte_surrogates_z.csv').dropna(subset=['obs_cte_f2w', 'obs_cte_w2f'])
     s['cte_corr'] = 100 * (ctz.obs_cte_f2w > ctz.obs_cte_w2f).mean()
     cn = pd.read_csv(f'{T}/cte_surrogates_z_null.csv')
